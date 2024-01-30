@@ -77,6 +77,18 @@ class App extends Component {
         }))
     }
 
+    employersCount = () => {
+        let count = 0;
+        this.state.data.forEach(()=>{
+            count++;
+        })
+        return count;
+    }
+
+    increaseCount = () => {
+        return this.state.data.filter(item => item.increase === true).length;
+    }
+
     render() {
         return (
             <div className="app">
