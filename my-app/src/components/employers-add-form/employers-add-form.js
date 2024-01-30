@@ -22,12 +22,14 @@ class EmployersAddForm extends Component {
         e.preventDefault();
         const {onAdd} = this.props;
         const {name, salary} = this.state;
-        onAdd(name, salary);
-        
-        this.setState({
-            name: '',
-            salary: ''
-        })
+        if (/^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,})(['’\-,.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){2,})?)*)$/.test(name) && salary > 0) {
+            onAdd(name, salary);
+
+            this.setState({
+                name: '',
+                salary: ''
+            })
+        }
     }
 
 
